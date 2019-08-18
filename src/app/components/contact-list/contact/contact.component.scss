@@ -1,0 +1,16 @@
+:host {
+  background-color: #fff;
+  border: 1px solid black;
+  border-radius: 10px;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  &:not(last-child) {margin-bottom: 20px}
+
+  .name {
+    fint-weight: bold;
+    font-size: 20px;
+    margin-right: 10px;
+  }
+
+}
