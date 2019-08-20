@@ -1,21 +1,32 @@
 import { Component, OnInit } from '@angular/core';
 import {Contact} from '../../models/contact.model';
+import {CONTACTS} from './contact-mockup';
 
 @Component({
   selector: 'app-contact-list',
   templateUrl: './contact-list.component.html',
   styleUrls: ['./contact-list.component.scss']
 })
-export class ContactListComponent   {
+export class ContactListComponent implements OnInit   {
 
-  public contacts: Contact[] = [
-    {name: 'Руслан  ',
-    phone: '063055555'},
-    {name: 'Орест  ',
-      phone: '06345055555'},
-    {name: 'Віталік  ',
-      phone: '063054353455555'}
+  public contacts: Contact[] = [];
+  ngOnInit(): void {
+    this.contacts = CONTACTS;
+  }
 
-  ];
+  public addContact(contact: Contact): void {
+    this.contacts.push(contact);
+
+  }
+
+  public filter(e: KeyboardEvent) {
+    const value = (e.target as HTMLInputElement).value.toLocaleLowerCase();
+    if (value) {
+      this.contacts = this.contacts.filter(contact => contact.name.toLocaleLowerCase().includes(value));
+
+    } else {
+      this.contacts = CONTACTS;
+    }
+  }
 
 }
