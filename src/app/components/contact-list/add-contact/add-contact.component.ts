@@ -3,34 +3,34 @@ import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {Contact} from '../../../models/contact.model';
 
 @Component({
-  selector: 'app-add-contact',
-  templateUrl: './add-contact.component.html',
-  styleUrls: ['./add-contact.component.scss']
+    selector: 'app-add-contact',
+    templateUrl: './add-contact.component.html',
+    styleUrls: ['./add-contact.component.scss']
 })
 export class AddContactComponent implements OnInit {
-  @Output() public addContact: EventEmitter<Contact> = new EventEmitter<Contact>();
+    @Output() public addContact: EventEmitter<Contact> = new EventEmitter<Contact>();
 
-  public isShowForm: boolean = false;
-  public addContactForm: FormGroup;
+    public isShowForm: boolean = false;
+    public addContactForm: FormGroup;
 
-  public showForm(): void {
-    this.isShowForm = true;
-  }
+    public showForm(): void {
+        this.isShowForm = true;
+    }
 
-  ngOnInit(): void {
-    this.addContactForm = new FormGroup({
-      name: new FormControl(null, {validators: [Validators.required]}),
-      phone: new FormControl(null, {validators: [Validators.required]}),
-    });
-  }
+    ngOnInit(): void {
+        this.addContactForm = new FormGroup({
+            name: new FormControl(null, {validators: [Validators.required]}),
+            phone: new FormControl(null, {validators: [Validators.required]}),
+        });
+    }
 
-  public onSubmit(): void {
-    let name = this.addContactForm.value.name;
-    let phone = this.addContactForm.value.phone;
-    let contact = new Contact(name, phone);
-    this.addContact.emit(contact);
-    this.addContactForm.reset();
-    this.isShowForm = false;
-  }
+    public onSubmit(): void {
+        let name = this.addContactForm.value.name;
+        let phone = this.addContactForm.value.phone;
+        let contact = new Contact(name, phone);
+        this.addContact.emit(contact);
+        this.addContactForm.reset();
+        this.isShowForm = false;
+    }
 
 }
