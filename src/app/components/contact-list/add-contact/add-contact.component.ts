@@ -10,7 +10,7 @@ import {Contact} from '../../../models/contact.model';
 export class AddContactComponent implements OnInit {
     @Output() public addContact: EventEmitter<Contact> = new EventEmitter<Contact>();
 
-    public isShowForm: boolean = false;
+    public isShowForm  = false;
     public addContactForm: FormGroup;
 
     public showForm(): void {
@@ -25,9 +25,9 @@ export class AddContactComponent implements OnInit {
     }
 
     public onSubmit(): void {
-        let name = this.addContactForm.value.name;
-        let phone = this.addContactForm.value.phone;
-        let contact = new Contact(name, phone);
+        const name = this.addContactForm.value.name;
+        const phone = this.addContactForm.value.phone;
+        const contact = new Contact(name, phone);
         this.addContact.emit(contact);
         this.addContactForm.reset();
         this.isShowForm = false;

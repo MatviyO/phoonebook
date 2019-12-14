@@ -12,7 +12,7 @@ export class ContactListComponent implements OnInit {
     public contacts: Contact[] = [];
 
     ngOnInit(): void {
-        this.contacts = CONTACTS;
+        this.contacts = JSON.parse(localStorage.getItem('contacts'));
     }
 
     public addContact(contact: Contact): void {
