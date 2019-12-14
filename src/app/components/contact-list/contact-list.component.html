@@ -1,4 +1,6 @@
 <input type="text" class="input" (keyup)="filter($event)"/>
 <app-add-contact (addContact)="addContact($event)"> </app-add-contact>
 <app-contact *ngFor="let contact of contacts" [contact]="contact"></app-contact>
-<p *ngIf="contacts.length === 0">ПО даному фильтру контактов не знайдено.</p>
+<p *ngIf="contacts.length === 0 && isFiltred">ПО даному фильтру контактов не знайдено.</p>
+<p *ngIf="contacts.length === 0 && !isFiltred">Ще не добавлено контактів.</p>
+

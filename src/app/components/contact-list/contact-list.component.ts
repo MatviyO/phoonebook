@@ -1,6 +1,5 @@
 import {Component, OnInit} from '@angular/core';
 import {Contact} from '../../models/contact.model';
-import {CONTACTS} from './contact-mockup';
 
 @Component({
     selector: 'app-contact-list',
@@ -10,9 +9,10 @@ import {CONTACTS} from './contact-mockup';
 export class ContactListComponent implements OnInit {
 
     public contacts: Contact[] = [];
+    public isFiltred = false;
 
     ngOnInit(): void {
-        this.contacts = JSON.parse(localStorage.getItem('contacts'));
+        this.contacts = JSON.parse(localStorage.getItem('contacts')) || [];
     }
 
     public addContact(contact: Contact): void {
@@ -26,7 +26,8 @@ export class ContactListComponent implements OnInit {
             this.contacts = this.contacts.filter(contact => contact.name.toLocaleLowerCase().includes(value));
 
         } else {
-            this.contacts = CONTACTS;
+            this.contacts = JSON.parse(localStorage.getItem('contacts'));
+
         }
     }
 
