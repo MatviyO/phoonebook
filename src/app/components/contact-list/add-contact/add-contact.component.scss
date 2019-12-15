@@ -2,7 +2,7 @@
   display: block;
   margin-bottom: 50px;
   .btn {
-    border: 1px solid #cccccc;
+    border: 1px solid ;
     border-radius: 5px;
     cursor: pointer;
     display: block;
@@ -11,6 +11,12 @@
     margin: 0 auto;
     padding: 8px 16px;
     text-align: center;
+    color: aqua;
+    background-color: black;
+  }
+  .btn:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 4px 17px rgba(0, 0, 0, 0.35);
   }
   .form {
     margin: 0 auto;
@@ -29,10 +35,11 @@
     }
   }
   .input {
-    border: 1px solid #cccccc;
+    border: 1px solid #b2e5ff;
     border-radius: 5px;
     height: 40px;
     padding: 8px 16px;
     width: 100%;
   }
+
 }

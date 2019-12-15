@@ -3,7 +3,10 @@
   <component name="ChangeListManager">
     <list default="true" id="6dcf179e-1061-4847-adbe-66545ebb94db" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/app.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/app.component.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/components/contact-list/add-contact/add-contact.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/components/contact-list/add-contact/add-contact.component.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/components/contact-list/contact-list.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/components/contact-list/contact-list.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/components/contact-list/contact-list.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/components/contact-list/contact-list.component.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/components/contact-list/contact-list.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/components/contact-list/contact-list.component.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -98,7 +101,8 @@
       <workItem from="1576253781801" duration="700000" />
       <workItem from="1576254520353" duration="58000" />
       <workItem from="1576355704928" duration="1201000" />
-      <workItem from="1576356956021" duration="2154000" />
+      <workItem from="1576356956021" duration="3525000" />
+      <workItem from="1576413249635" duration="1715000" />
     </task>
     <servers />
   </component>

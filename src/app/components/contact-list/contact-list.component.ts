@@ -24,10 +24,20 @@ export class ContactListComponent implements OnInit {
         const value = (e.target as HTMLInputElement).value.toLocaleLowerCase();
         if (value) {
             this.contacts = this.contacts.filter(contact => contact.name.toLocaleLowerCase().includes(value));
+            this.isFiltred = true;
 
         } else {
-            this.contacts = JSON.parse(localStorage.getItem('contacts'));
+            this.contacts = JSON.parse(localStorage.getItem('contacts')) || [];
+            this.isFiltred = false;
 
+        }
+    }
+    public emptyMessage():string {
+        if(this.contacts.length === 0 && this.isFiltred) {
+            return ' ПО даному фильтру контактов не знайдено.';
+        }
+        if(this.contacts.length === 0 && !this.isFiltred ) {
+            return 'Ще не добавлено контактів';
         }
     }
 
