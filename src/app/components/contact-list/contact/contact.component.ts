@@ -1,5 +1,6 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {Contact} from '../../../models/contact.model';
+import {ContactsService} from '../../../services/contacts.service';
 
 @Component({
     selector: 'app-contact',
@@ -9,11 +10,16 @@ import {Contact} from '../../../models/contact.model';
 export class ContactComponent implements OnInit {
 
     @Input() public contact: Contact;
+    @Output() remove = new EventEmitter();
 
-    constructor() {
+    constructor(private contactsService: ContactsService) {
     }
 
     ngOnInit() {
+    }
+    public removeContact() {
+        this.contactsService.removeContact(this.contact.id)
+        this.remove.emit();
     }
 
 }

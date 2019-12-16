@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {Contact} from '../../models/contact.model';
+import {ContactsService} from '../../services/contacts.service';
 
 @Component({
     selector: 'app-contact-list',
@@ -11,14 +12,13 @@ export class ContactListComponent implements OnInit {
     public contacts: Contact[] = [];
     public isFiltred = false;
 
+    constructor(private contactsService: ContactsService ) {
+    }
     ngOnInit(): void {
-        this.contacts = JSON.parse(localStorage.getItem('contacts')) || [];
+       this.updateContacts();
     }
 
-    public addContact(contact: Contact): void {
-        this.contacts.push(contact);
 
-    }
 
     public filter(e: KeyboardEvent) {
         const value = (e.target as HTMLInputElement).value.toLocaleLowerCase();
@@ -27,7 +27,7 @@ export class ContactListComponent implements OnInit {
             this.isFiltred = true;
 
         } else {
-            this.contacts = JSON.parse(localStorage.getItem('contacts')) || [];
+            this.updateContacts();
             this.isFiltred = false;
 
         }
@@ -39,6 +39,9 @@ export class ContactListComponent implements OnInit {
         if(this.contacts.length === 0 && !this.isFiltred ) {
             return 'Ще не добавлено контактів';
         }
+    }
+    public updateContacts(): void{
+       this.contacts = this.contactsService.updateContacts() ;
     }
 
 }

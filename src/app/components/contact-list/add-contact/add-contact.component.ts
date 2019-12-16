@@ -1,6 +1,7 @@
 import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {Contact} from '../../../models/contact.model';
+import {ContactsService} from '../../../services/contacts.service';
 
 @Component({
     selector: 'app-add-contact',
@@ -16,6 +17,8 @@ export class AddContactComponent implements OnInit {
     public showForm(): void {
         this.isShowForm = true;
     }
+    constructor(private contactsService: ContactsService) {
+    }
 
     ngOnInit(): void {
         this.addContactForm = new FormGroup({
@@ -28,7 +31,7 @@ export class AddContactComponent implements OnInit {
         const name = this.addContactForm.value.name;
         const phone = this.addContactForm.value.phone;
         const contact = new Contact(name, phone);
-        this.addContact.emit(contact);
+        this.contactsService.addContact(contact);
         this.addContactForm.reset();
         this.isShowForm = false;
     }
